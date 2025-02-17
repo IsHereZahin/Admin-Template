@@ -1,8 +1,4 @@
 <script setup>
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
@@ -34,89 +30,91 @@ const updatePassword = () => {
 </script>
 
 <template>
-    <section>
-        <header>
-            <h2 class="text-lg font-medium text-gray-900">
-                Update Password
-            </h2>
+    <Head title="Update Password" />
 
-            <p class="mt-1 text-sm text-gray-600">
-                Ensure your account is using a long, random password to stay
-                secure.
-            </p>
-        </header>
+    <MasterLayout title="Update Password">
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card h-100 p-4">
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-md-8 d-flex flex-column align-items-start">
+                                    <h2 class="text-lg font-medium text-gray-900">Update Password</h2>
+                                    <p class="mt-2 text-sm text-gray-600">
+                                        Ensure your account is using a long, random password to stay secure.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-        <form @submit.prevent="updatePassword" class="mt-6 space-y-6">
-            <div>
-                <InputLabel for="current_password" value="Current Password" />
+                        <div class="card-body p-3 mt-3">
+                            <form @submit.prevent="updatePassword" class="space-y-6">
+                                <div>
+                                    <label for="current_password" class="block text-sm font-medium text-gray-700">Current Password</label>
 
-                <TextInput
-                    id="current_password"
-                    ref="currentPasswordInput"
-                    v-model="form.current_password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="current-password"
-                />
+                                    <input
+                                        id="current_password"
+                                        ref="currentPasswordInput"
+                                        v-model="form.current_password"
+                                        type="password"
+                                        class="block w-full px-4 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        autocomplete="current-password"
+                                    />
 
-                <InputError
-                    :message="form.errors.current_password"
-                    class="mt-2"
-                />
+                                    <div v-if="form.errors.current_password" class="mt-2 text-sm text-red-600">
+                                        {{ form.errors.current_password }}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
+
+                                    <input
+                                        id="password"
+                                        ref="passwordInput"
+                                        v-model="form.password"
+                                        type="password"
+                                        class="block w-full px-4 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        autocomplete="new-password"
+                                    />
+
+                                    <div v-if="form.errors.password" class="mt-2 text-sm text-red-600">
+                                        {{ form.errors.password }}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+
+                                    <input
+                                        id="password_confirmation"
+                                        v-model="form.password_confirmation"
+                                        type="password"
+                                        class="block w-full px-4 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        autocomplete="new-password"
+                                    />
+
+                                    <div v-if="form.errors.password_confirmation" class="mt-2 text-sm text-red-600">
+                                        {{ form.errors.password_confirmation }}
+                                    </div>
+                                </div>
+
+                                <!-- Save Button -->
+                                <div class="flex justify-end gap-4"> <!-- Changed 'items-end' to 'justify-end' -->
+                                    <Button
+                                        :disabled="form.processing"
+                                        class="px-4 py-2 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black disabled:opacity-50"
+                                    >
+                                        <span v-if="form.processing" class="mr-2">Password Updating...</span>
+                                        <span v-else>Password Update</span>
+                                    </Button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div>
-                <InputLabel for="password" value="New Password" />
-
-                <TextInput
-                    id="password"
-                    ref="passwordInput"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-
-                <InputError :message="form.errors.password" class="mt-2" />
-            </div>
-
-            <div>
-                <InputLabel
-                    for="password_confirmation"
-                    value="Confirm Password"
-                />
-
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-
-                <InputError
-                    :message="form.errors.password_confirmation"
-                    class="mt-2"
-                />
-            </div>
-
-            <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
-
-                <Transition
-                    enter-active-class="transition ease-in-out"
-                    enter-from-class="opacity-0"
-                    leave-active-class="transition ease-in-out"
-                    leave-to-class="opacity-0"
-                >
-                    <p
-                        v-if="form.recentlySuccessful"
-                        class="text-sm text-gray-600"
-                    >
-                        Saved.
-                    </p>
-                </Transition>
-            </div>
-        </form>
-    </section>
+        </div>
+    </MasterLayout>
 </template>

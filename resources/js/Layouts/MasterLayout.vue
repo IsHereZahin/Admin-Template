@@ -1,8 +1,9 @@
 <template>
     <div class="g-sidenav-show bg-gray-100">
-        <sidebar />
+        <Sidebar />
         <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
-            <Navbar/>
+            <Navbar :title="title" />
+
             <!-- Page Content -->
             <main>
                 <slot />
@@ -16,4 +17,8 @@
 import Sidebar from '@/Components/Sidebar/Sidebar.vue';
 import Navbar from '@/Components/Navbar/Navbar.vue';
 import Footer from '@/Components/Footer/Footer.vue';
+
+defineProps({
+    title: String,
+});
 </script>

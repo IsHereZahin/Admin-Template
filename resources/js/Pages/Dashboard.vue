@@ -1,7 +1,7 @@
 <template>
     <Head title="Dashboard" />
 
-    <MasterLayout>
+    <MasterLayout title="Dashboard">
         <div class="container-fluid py-4">
             <Card/>
             <div class="row mt-4">
