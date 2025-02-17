@@ -53,6 +53,7 @@
                             href="javascript:;"
                             class="nav-link text-body p-0"
                             id="iconNavbarSidenav"
+                            @click="$emit('toggleSidebar')"
                         >
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line"></i>
@@ -233,4 +234,6 @@ import { Link } from '@inertiajs/vue3';
 defineProps({
     title: String,
 });
+
+defineEmits(['toggleSidebar']);
 </script>
