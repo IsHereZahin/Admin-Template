@@ -75,7 +75,7 @@ const submitForm = () => {
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="ms-2 fs-6 fw-semibold text-dark">Settings</span>
+                                        <span class="ms-2 fs-6 fw-semibold text-dark">Profile Information Settings</span>
                                     </a>
                                 </li>
                             </ul>

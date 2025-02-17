@@ -1,14 +1,16 @@
+<!-- MasterLayout Component -->
 <template>
     <div class="g-sidenav-show bg-gray-100" :class="{ 'g-sidenav-pinned': isOpen }">
-        <Sidebar />
+        <Sidebar :systemColor="systemColor" />
         <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
             <Navbar :title="title" @toggle-sidebar="toggleSidenav" />
             <!-- Page Content -->
             <main>
                 <slot />
             </main>
-            <Footer/>
+            <Footer />
         </main>
+        <Plugin @update-color="updateSystemColor" />
     </div>
 </template>
 
@@ -17,12 +19,14 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import Sidebar from '@/Components/Sidebar/Sidebar.vue';
 import Navbar from '@/Components/Navbar/Navbar.vue';
 import Footer from '@/Components/Footer/Footer.vue';
+import Plugin from '@/Components/Plugin/Plugin.vue';
 
 const props = defineProps({
     title: String,
 });
 
 const isOpen = ref(false);
+const systemColor = ref('success');
 
 const toggleSidenav = () => {
     const body = document.body;
@@ -39,7 +43,10 @@ const toggleSidenav = () => {
     }
 };
 
-// Handle window resize
+const updateSystemColor = (color) => {
+    systemColor.value = color;
+};
+
 const handleResize = () => {
     const body = document.body;
     if (window.innerWidth > 1200) {

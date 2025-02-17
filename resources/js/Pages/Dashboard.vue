@@ -3,7 +3,7 @@
 
     <MasterLayout title="Dashboard">
         <div class="container-fluid py-4">
-            <Card/>
+            <Card />
             <div class="row mt-4">
                 <div class="col-lg-7 mb-lg-0 mb-4">
                     <div class="card">

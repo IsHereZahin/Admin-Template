@@ -23,16 +23,29 @@
             >
             <!-- collapse -->
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                    <div class="input-group">
-                        <span class="input-group-text text-body"
-                            ><i class="fas fa-search" aria-hidden="true"></i
-                        ></span>
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Type here..."
-                        />
-                    </div>
+                    <div class="relative flex items-center">
+                    <span class="absolute left-3 text-gray-500">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width=24
+                            height=24
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke=gray
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            >
+                            <circle cx="11" cy="11" r="7.5" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </span>
+                    <input
+                        type="text"
+                        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200"
+                        placeholder="Search..."
+                    />
+                </div>
                 </div>
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item d-flex align-items-center">
