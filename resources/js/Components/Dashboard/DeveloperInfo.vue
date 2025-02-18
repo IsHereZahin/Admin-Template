@@ -43,7 +43,7 @@
                 <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="
                                 background-image: url('../assets/img/ivancik.jpg');
                             ">
-                    <span class="mask bg-gradient-dark"></span>
+                    <span :class="`mask bg-gradient-${systemColor}`"></span>
                     <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                         <h5 class="text-white font-weight-bolder mb-4 pt-2">
                             Work with the rockets

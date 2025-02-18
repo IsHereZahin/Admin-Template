@@ -5,7 +5,14 @@
         <div class="container-fluid py-4">
             <Card />
             <DeveloperInfo />
-            <BarChartWidget />
+            <div class="row mt-4 flex gap-1">
+                <div class="col-lg-5 mb-lg-0 mb-4 flex-1">
+                    <BarChartWidget />
+                </div>
+                <div class="col-lg-7 flex-1">
+                    <LineChartWidget />
+                </div>
+            </div>
             <div class="row my-4">
                 <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
                     <div class="card">
@@ -787,4 +794,5 @@ import MasterLayout from "@/Layouts/MasterLayout.vue";
 import Card from "@/Components/Dashboard/Card.vue";
 import DeveloperInfo from "@/Components/Dashboard/DeveloperInfo.vue";
 import BarChartWidget from "@/Components/Dashboard/BarChartWidget.vue";
+import LineChartWidget from "@/Components/Dashboard/LineChartWidget.vue";
 </script>
