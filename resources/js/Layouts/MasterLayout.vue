@@ -1,4 +1,4 @@
-<!-- MasterLayout Component -->
+<!-- MasterLayout.vue -->
 <template>
     <div class="g-sidenav-show bg-gray-100" :class="{ 'g-sidenav-pinned': isOpen }">
         <Sidebar :systemColor="systemColor" />
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, provide, onMounted, onBeforeUnmount } from 'vue';
 import Sidebar from '@/Components/Sidebar/Sidebar.vue';
 import Navbar from '@/Components/Navbar/Navbar.vue';
 import Footer from '@/Components/Footer/Footer.vue';
@@ -27,6 +27,12 @@ const props = defineProps({
 
 const isOpen = ref(false);
 const systemColor = ref('success');
+
+// Provide both the value and the update function
+provide('systemColor', systemColor);
+provide('updateSystemColor', (color) => {
+    systemColor.value = color;
+});
 
 const toggleSidenav = () => {
     const body = document.body;

@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 
 const passwordInput = ref(null);
 const currentPasswordInput = ref(null);
@@ -27,6 +27,15 @@ const updatePassword = () => {
         },
     });
 };
+
+// Inject the systemColor
+const systemColor = inject('systemColor');
+const updateSystemColor = inject('updateSystemColor');
+
+// If you need to update the color from this component
+// const changeColor = (newColor) => {
+//     updateSystemColor(newColor);
+// };
 </script>
 
 <template>
@@ -104,7 +113,7 @@ const updatePassword = () => {
                                 <div class="flex justify-end gap-4"> <!-- Changed 'items-end' to 'justify-end' -->
                                     <Button
                                         :disabled="form.processing"
-                                        class="px-4 py-2 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black disabled:opacity-50"
+                                        :class="`px-4 py-2 bg-gradient-${systemColor} text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black disabled:opacity-50`"
                                     >
                                         <span v-if="form.processing" class="mr-2">Password Updating...</span>
                                         <span v-else>Password Update</span>

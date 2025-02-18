@@ -198,11 +198,11 @@
                         as="button"
                     >
                         <div
-                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
+                            class="pt-0.5 icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
                         >
                             <svg
-                                width="20px"
-                                height="20px"
+                                width="15px"
+                                height="15px"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
                             >

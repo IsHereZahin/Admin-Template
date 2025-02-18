@@ -28,6 +28,16 @@ const closeModal = () => {
     form.clearErrors();
     form.reset();
 };
+import { inject } from 'vue';
+
+// Inject the systemColor
+const systemColor = inject('systemColor');
+const updateSystemColor = inject('updateSystemColor');
+
+// If you need to update the color from this component
+const changeColor = (newColor) => {
+    updateSystemColor(newColor);
+};
 </script>
 
 <template>

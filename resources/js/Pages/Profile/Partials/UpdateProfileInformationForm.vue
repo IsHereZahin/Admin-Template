@@ -1,5 +1,6 @@
 <script setup>
 import { useForm, usePage } from "@inertiajs/vue3";
+import { inject } from 'vue';
 
 const user = usePage().props.auth.user;
 
@@ -21,6 +22,10 @@ const submitForm = () => {
     console.log('Form data:', form);
     form.patch(route('profile.update'));
 };
+
+// Inject the systemColor
+const systemColor = inject('systemColor');
+const updateSystemColor = inject('updateSystemColor');
 </script>
 
 <template>
@@ -141,7 +146,7 @@ const submitForm = () => {
                                 <div class="flex justify-end gap-4"> <!-- Changed 'items-end' to 'justify-end' -->
                                     <Button
                                         :disabled="form.processing"
-                                        class="px-5 py-2 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black disabled:opacity-50"
+                                        :class="`px-5 py-2 bg-gradient-${systemColor} text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black disabled:opacity-50`"
                                     >
                                         <span v-if="form.processing" class="mr-2">Saving...</span>
                                         <span v-else>Save</span>
