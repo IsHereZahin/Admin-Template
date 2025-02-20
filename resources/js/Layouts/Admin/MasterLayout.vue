@@ -16,10 +16,10 @@
 
 <script setup>
 import { ref, provide, onMounted, onBeforeUnmount } from 'vue';
-import Sidebar from '@/Components/Sidebar/Sidebar.vue';
-import Navbar from '@/Components/Navbar/Navbar.vue';
-import Footer from '@/Components/Footer/Footer.vue';
-import Plugin from '@/Components/Plugin/Plugin.vue';
+import Sidebar from '@/Components/Admin/Sidebar/Sidebar.vue';
+import Navbar from '@/Components/Admin/Navbar/Navbar.vue';
+import Footer from '@/Components/Admin/Footer/Footer.vue';
+import Plugin from '@/Components/Admin/Plugin/Plugin.vue';
 
 const props = defineProps({
     title: String,
